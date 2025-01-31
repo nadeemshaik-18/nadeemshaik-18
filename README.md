@@ -4,7 +4,7 @@
 
 ###
 
-<h2 align="left">Hi 👋! My name is Shaik Muhammad Nadimulla and I'm a passionate Data Analyst from India</h2>
+<h2 align="left">Hi 👋! My name is Shaik Muhammad Nadimulla and I'm a  Data Analyst from India</h2>
 
 ###
 
