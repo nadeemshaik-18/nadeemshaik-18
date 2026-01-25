@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadimulla Shaik | Data Analyst Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-alt: #f9fafb;
+            --border: #e5e7eb;
+            --accent: #3b82f6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header/Hero */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 2rem;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--bg-alt);
+            color: var(--primary);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-alt);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-alt);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            border: 1px solid var(--border);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--bg-alt);
+            border-radius: 8px;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+
+        .project-highlights {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .project-highlights li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .project-highlights li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .experience-item::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 2rem;
+            width: 4px;
+            height: calc(100% - 4rem);
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .experience-company {
+            font-size: 1.2rem;
+            color: var(--text);
+            margin-top: 0.3rem;
+        }
+
+        .experience-date {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .experience-highlights {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-highlights li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-highlights li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .contact-card {
+            background: var(--bg);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            nav .container {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Hero Section -->
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Shaik Muhammad Nadimulla</h1>
+                <p class="hero-subtitle">Data Analyst & Business Intelligence Specialist</p>
+                <p class="hero-description">
+                    Transforming raw data into actionable insights through advanced analytics, 
+                    machine learning, and compelling visualizations. Specialized in driving business 
+                    decisions with data-driven strategies.
+                </p>
+                <div class="social-links">
+                    <a href="mailto:nadimulla118@gmail.com">📧 Email</a>
+                    <a href="https://github.com/nadeemshaik-18" target="_blank">💻 GitHub</a>
+                    <a href="https://linkedin.com/in/nadeem-shaik18/" target="_blank">💼 LinkedIn</a>
+                    <a href="#contact">📱 Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">
+                    Data Analyst with a passion for uncovering insights that drive business growth. 
+                    With expertise in SQL, Python, and Power BI, I've successfully delivered projects 
+                    that optimize processes, reduce churn, and identify revenue opportunities. My background 
+                    in Computer Science with AI & ML, combined with hands-on experience in customer support 
+                    analytics, gives me a unique perspective on solving complex business problems.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-top: 1.5rem;">
+                    <strong>CGPA: 8.56/10.0</strong> | Sri Venkateswara College of Engineering, Tirupati
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>📊 Data Analysis & Statistics</h3>
+                    <p>Expert in statistical analysis, hypothesis testing, and deriving actionable insights from complex datasets.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Statistics</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>📈 Data Visualization</h3>
+                    <p>Creating compelling dashboards and visualizations that tell data stories and drive decisions.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Excel</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🗄️ Database Management</h3>
+                    <p>Proficient in designing, querying, and optimizing databases for performance and scalability.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">SQL Server</span>
+                        <span class="skill-tag">Query Optimization</span>
+                        <span class="skill-tag">ETL</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🤖 Machine Learning</h3>
+                    <p>Applying ML algorithms to solve business problems and uncover patterns in data.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">K-Means Clustering</span>
+                        <span class="skill-tag">Classification</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Feature Engineering</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🔧 Tools & Technologies</h3>
+                    <p>Leveraging modern tools for efficient data processing and automation.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">VBA</span>
+                        <span class="skill-tag">Advanced Excel</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>💡 Business Skills</h3>
+                    <p>Strong communication and analytical thinking to bridge the gap between data and business.</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Business Acumen</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1: EdTech Analysis -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🎓 EdTech Market Trends & Performance Analysis</h3>
+                        <p>Comprehensive market intelligence platform analyzing educational technology landscape</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Power BI</span>
+                            <span class="tech-badge">SQL</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">K-Means Clustering</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">80+</div>
+                                <div class="metric-label">Apps Analyzed</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">3</div>
+                                <div class="metric-label">Performance Clusters</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">4.5+</div>
+                                <div class="metric-label">Top App Rating</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">10M+</div>
+                                <div class="metric-label">Top App Installs</div>
+                            </div>
+                        </div>
+                        
+                        <ul class="project-highlights">
+                            <li>Analyzed installation trends, user ratings, and engagement metrics across 80+ educational apps to identify market opportunities</li>
+                            <li>Implemented K-Means clustering algorithm to segment apps into performance tiers, revealing that top 15% drive majority market share</li>
+                            <li>Built interactive Power BI dashboard tracking category performance, revenue potential, and user sentiment analysis</li>
+                            <li>Delivered actionable insights for stakeholders to optimize product strategy and market positioning</li>
+                        </ul>
+
+                        <div class="project-links">
+                            <a href="https://github.com/nadeemshaik-18" class="btn btn-primary" target="_blank">View on GitHub</a>
+                            <a href="#contact" class="btn btn-secondary">Request Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Churn Analysis -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>📉 Subscription Churn Analysis & Retention Strategy</h3>
+                        <p>Advanced customer intelligence system for subscription-based business optimization</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">SQL</span>
+                            <span class="tech-badge">Power BI</span>
+                            <span class="tech-badge">Excel</span>
+                            <span class="tech-badge">Cohort Analysis</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">65.96%</div>
+                                <div class="metric-label">Churn Rate</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">$230</div>
+                                <div class="metric-label">Customer LTV</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">72%</div>
+                                <div class="metric-label">Cancel in 6 Months</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">20%</div>
+                                <div class="metric-label">Retention Increase</div>
+                            </div>
+                        </div>
+                        
+                        <ul class="project-highlights">
+                            <li>Calculated customer lifetime value ($230) and identified $340K+ annual revenue leakage opportunity</li>
+                            <li>Performed cohort analysis revealing 72% of churned users canceled within first 6 months</li>
+                            <li>Discovered power users (5+ sessions/month) had 20% longer retention and 3.2x higher LTV</li>
+                            <li>Created comprehensive Power BI dashboards for churn forecasting and feedback sentiment analysis</li>
+                            <li>Developed data-driven retention strategies projected to reduce churn by 12-15%</li>
+                        </ul>
+
+                        <div class="project-links">
+                            <a href="https://github.com/nadeemshaik-18" class="btn btn-primary" target="_blank">View on GitHub</a>
+                            <a href="#contact" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Data Cleaning Automation -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🔧 Automated Data Cleaning System</h3>
+                        <p>Enterprise-grade Python framework for data quality automation</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">NumPy</span>
+                            <span class="tech-badge">Openpyxl</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <div class="metric-value">&lt;5s</div>
+                                <div class="metric-label">Processing Time</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">10K+</div>
+                                <div class="metric-label">Rows Processed</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">100%</div>
+                                <div class="metric-label">Duplicate Detection</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">98%</div>
+                                <div class="metric-label">Data Integrity</div>
+                            </div>
+                        </div>
+                        
+                        <ul class="project-highlights">
+                            <li>Engineered Python-based ETL tool processing 10,000+ rows in under 5 seconds with 95% speed improvement</li>
+                            <li>Achieved 100% duplicate detection with automated backup and audit trail functionality</li>
+                            <li>Implemented intelligent imputation strategies removing 98% of corrupt records while preserving data integrity</li>
+                            <li>Built modular architecture supporting CSV/Excel formats with schema validation and error logging</li>
+                            <li>Reduced manual data preparation overhead by 40 hours/month across analytics workflows</li>
+                        </ul>
+
+                        <div class="project-links">
+                            <a href="https://github.com/nadeemshaik-18" class="btn btn-primary" target="_blank">View on GitHub</a>
+                            <a href="#contact" class="btn btn-secondary">Documentation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Digital Interaction Advisor</div>
+                            <div class="experience-company">24[7].ai - Best Buy International Process</div>
+                        </div>
+                        <div class="experience-date">Oct 2025 - Jan 2026</div>
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Managed 500+ high-complexity customer interactions across 6 integrated platforms (Salesforce Tool Bench, Twilio, mPOS), achieving 98% CSAT score</li>
+                        <li>Optimized ticket resolution workflows, reducing average handling time by 18% and generating $12K+ monthly cost savings</li>
+                        <li>Built performance tracking dashboards monitoring 15+ KPIs, improving first-call resolution from 76% to 89% in 90 days</li>
+                        <li>Maintained top 5% performer status across 200+ agent team through data-driven process improvements</li>
+                        <li>Collaborated with cross-functional teams (product, billing, technical) to deliver accurate solutions and maintain detailed documentation</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Data Analytics Virtual Intern</div>
+                            <div class="experience-company">Quantium</div>
+                        </div>
+                        <div class="experience-date">Dec 2024 - Jan 2025</div>
+                    </div>
+                    <ul class="experience-highlights">
+                        <li>Completed retail analytics case study analyzing customer purchasing behavior and campaign effectiveness</li>
+                        <li>Performed A/B testing and statistical analysis to measure marketing campaign impact on sales</li>
+                        <li>Delivered insights presentation to stakeholders with actionable recommendations for revenue optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:nadimulla118@gmail.com">nadimulla118@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/nadeem-shaik18/" target="_blank">linkedin.com/in/nadeem-shaik18</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">💻</div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/nadeemshaik-18" target="_blank">github.com/nadeemshaik-18</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <a href="tel:+917981205799">+91-7981205799</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Certifications</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                    <span class="skill-tag">✓ SQL (HackerRank)</span>
+                    <span class="skill-tag">✓ Python (HackerRank)</span>
+                    <span class="skill-tag">✓
